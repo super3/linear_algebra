@@ -44,3 +44,9 @@ class VectorTest(unittest.TestCase):
         self.assertEqual(v1 + v2, result1)
         self.assertEqual(v3 - v4, result2)
         self.assertEqual(v5*7.41, result3)
+
+    def prob_set_2(self):
+        v1 = Vector([-0.221, 7.437])
+        v2 = Vector([8.813, -1.331, -6.247])
+        v3 = Vector([5.581, -2.136])
+        v4 = Vector([1.996, 3.108, -4.554])
