@@ -16,7 +16,6 @@ class Vector(object):
     def __str__(self):
         return 'Vector: {}'.format(self.coordinates)
 
-
     def __eq__(self, v):
         return self.coordinates == v.coordinates
 
@@ -26,23 +25,17 @@ class Vector(object):
 
     def __add__(self, v):
         """Vector addition."""
-        coordinates = []
         self.eq_dimension(v)
-        for i in range(self.dimension):
-            coordinates.append(round(self.coordinates[i] + v.coordinates[i], 3))
-        return Vector(coordinates)
+        new_coordinates = [round(x+y, 3) for x, y in zip(self.coordinates, v.coordinates)]
+        return Vector(new_coordinates)
 
     def __sub__(self, v):
         """Vector subtraction."""
-        coordinates = []
         self.eq_dimension(v)
-        for i in range(self.dimension):
-            coordinates.append(round(self.coordinates[i] - v.coordinates[i], 3))
-        return Vector(coordinates)
+        new_coordinates = [round(x-y, 3) for x, y in zip(self.coordinates, v.coordinates)]
+        return Vector(new_coordinates)
 
     def __mul__(self, c):
         """Vector scaling/multiplication."""
-        coordinates = []
-        for i in range(self.dimension):
-            coordinates.append(round(self.coordinates[i] * c, 3))
-        return Vector(coordinates)
+        new_coordinates = [round(x*c, 3) for x in self.coordinates]
+        return Vector(new_coordinates)
