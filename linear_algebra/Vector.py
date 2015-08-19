@@ -29,13 +29,20 @@ class Vector(object):
         coordinates = []
         self.eq_dimension(v)
         for i in range(self.dimension):
-            coordinates.append(self.coordinates[i] + v.coordinates[i])
+            coordinates.append(round(self.coordinates[i] + v.coordinates[i], 3))
         return Vector(coordinates)
 
-    def subtract(self, v):
+    def __sub__(self, v):
         """Vector subtraction."""
+        coordinates = []
         self.eq_dimension(v)
+        for i in range(self.dimension):
+            coordinates.append(round(self.coordinates[i] - v.coordinates[i], 3))
+        return Vector(coordinates)
 
-    def scale(self, v):
+    def __mul__(self, c):
         """Vector scaling/multiplication."""
-        self.eq_dimension(v)
+        coordinates = []
+        for i in range(self.dimension):
+            coordinates.append(round(self.coordinates[i] * c, 3))
+        return Vector(coordinates)
